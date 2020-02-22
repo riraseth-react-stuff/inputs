@@ -8,7 +8,7 @@ class Form extends Component {
     const email = this.email.value;
     const text = this.refs.myText;
     text.style.color = "red";
-    console.log(name, email, text);
+    console.log(name, email, text.textContent);
   };
   render() {
     return (
