@@ -16,16 +16,29 @@ class Form extends Component {
     //     firstName: textValue
     //   });
     // }
-
     this.setState({
       [e.target.name]: [e.target.value]
     });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const firstName = this.state.firstName;
+    const lastName = this.state.lastName;
+    if (firstName.length > 0 && lastName.length > 0) {
+      const person = ` ${firstName} ${lastName} `;
+      this.setState({
+        people: [...this.state.people, person],
+        firstName: "",
+        lastName: ""
+      });
+    }
   };
   render() {
     return (
       <section>
         <article>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input
               type="text"
               name="firstName"
